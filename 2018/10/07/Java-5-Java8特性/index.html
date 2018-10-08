@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>Java(5) Java8特性 | Bruce&#39;s Batcave</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="概述&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Java8新特性的简单学习：接口的默认方法（Default Method）、Lambda表达式、函数式接口（Functional Interface）、方法和构造器引用 接口的默认方法（Default Method for Interface）&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbs">
+  <meta name="description" content="概述&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Java8新特性的简单学习：接口的默认方法（Default Method）、Lambda表达式、函数式接口（Functional Interface）、方法和构造器引用">
 <meta name="keywords" content="Coding,Java">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java(5) Java8特性">
 <meta property="og:url" content="http://yoursite.com/2018/10/07/Java-5-Java8特性/index.html">
 <meta property="og:site_name" content="Bruce&#39;s Batcave">
-<meta property="og:description" content="概述&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Java8新特性的简单学习：接口的默认方法（Default Method）、Lambda表达式、函数式接口（Functional Interface）、方法和构造器引用 接口的默认方法（Default Method for Interface）&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbs">
+<meta property="og:description" content="概述&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Java8新特性的简单学习：接口的默认方法（Default Method）、Lambda表达式、函数式接口（Functional Interface）、方法和构造器引用">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-10-07T13:02:34.660Z">
+<meta property="og:updated_time" content="2018-10-08T07:18:24.345Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java(5) Java8特性">
-<meta name="twitter:description" content="概述&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Java8新特性的简单学习：接口的默认方法（Default Method）、Lambda表达式、函数式接口（Functional Interface）、方法和构造器引用 接口的默认方法（Default Method for Interface）&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbs">
+<meta name="twitter:description" content="概述&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Java8新特性的简单学习：接口的默认方法（Default Method）、Lambda表达式、函数式接口（Functional Interface）、方法和构造器引用">
   
     <link rel="alternative" href="/atom.xml" title="Bruce&#39;s Batcave" type="application/atom+xml">
   
@@ -212,6 +212,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Java8新特性的简单学习：接口的默认方法（Default Method）、Lambda表达式、函数式接口（Functional Interface）、方法和构造器引用</p>
+<a id="more"></a>
 <h2 id="接口的默认方法（Default-Method-for-Interface）"><a href="#接口的默认方法（Default-Method-for-Interface）" class="headerlink" title="接口的默认方法（Default Method for Interface）"></a>接口的默认方法（Default Method for Interface）</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Java8允许使用<strong>defaul</strong>关键字为接口声明添加非抽象的方法实现。这个特性又被称为<strong>虚扩展方法</strong>（virtual extension methods）。Default Method的初衷是为了让已有接口能平滑演进添加新功能，比如Collection里添加了<strong>stream</strong>()方法和<strong>forEach</strong>()方法。没有Default Method会使得这些方法覆盖变得异常困难。例子：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">Formula</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">double</span> <span class="title">calculate</span><span class="params">(<span class="keyword">int</span> a)</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">default</span> <span class="keyword">double</span> <span class="title">sqrt</span><span class="params">(<span class="keyword">int</span> a)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> Math.sqrt(a);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>在接口<strong>Formula</strong>中，除了抽象方法<strong>calculate</strong>外，还定义了一个默认方法<strong>sqrt</strong>。而<strong>Formula</strong>的实现类只需要实现抽象方法<strong>calculate</strong>()就可以了。默认方法<strong>sqrt</strong>()可以直接使用：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Formula formula = <span class="keyword">new</span> Formula() &#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">double</span> <span class="title">calculate</span><span class="params">(<span class="keyword">int</span> a)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> sqrt(a * <span class="number">100</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">formula.calculate(<span class="number">100</span>); <span class="comment">// 100.0</span></span><br><span class="line">formula.sqrt(<span class="number">16</span>); <span class="comment">// 4.0</span></span><br></pre></td></tr></table></figure></p>
 <h2 id="方法和构造函数引用"><a href="#方法和构造函数引用" class="headerlink" title="方法和构造函数引用"></a>方法和构造函数引用</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Java8运行通过关键字::获取方法或构造函数的引用。</p>

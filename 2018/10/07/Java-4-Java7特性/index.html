@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>Java(4) Java7特性 | Bruce&#39;s Batcave</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="概述异常的改进文件操作Switch允许使用字符串1234567891011String s = &quot;test&quot;;switch (s) &amp;#123;    case &quot;test&quot; :    System.out.println(&quot;test&quot;);    case &quot;test1&quot; :    System.out.println(&quot;test1&quot;);    break ;    default :    Sy">
+  <meta name="description" content="概述">
 <meta name="keywords" content="Coding,Java">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java(4) Java7特性">
 <meta property="og:url" content="http://yoursite.com/2018/10/07/Java-4-Java7特性/index.html">
 <meta property="og:site_name" content="Bruce&#39;s Batcave">
-<meta property="og:description" content="概述异常的改进文件操作Switch允许使用字符串1234567891011String s = &quot;test&quot;;switch (s) &amp;#123;    case &quot;test&quot; :    System.out.println(&quot;test&quot;);    case &quot;test1&quot; :    System.out.println(&quot;test1&quot;);    break ;    default :    Sy">
+<meta property="og:description" content="概述">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-10-07T09:37:18.271Z">
+<meta property="og:updated_time" content="2018-10-08T07:18:17.547Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java(4) Java7特性">
-<meta name="twitter:description" content="概述异常的改进文件操作Switch允许使用字符串1234567891011String s = &quot;test&quot;;switch (s) &amp;#123;    case &quot;test&quot; :    System.out.println(&quot;test&quot;);    case &quot;test1&quot; :    System.out.println(&quot;test1&quot;);    break ;    default :    Sy">
+<meta name="twitter:description" content="概述">
   
     <link rel="alternative" href="/atom.xml" title="Bruce&#39;s Batcave" type="application/atom+xml">
   
@@ -211,7 +211,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><h2 id="异常的改进"><a href="#异常的改进" class="headerlink" title="异常的改进"></a>异常的改进</h2><h2 id="文件操作"><a href="#文件操作" class="headerlink" title="文件操作"></a>文件操作</h2><h2 id="Switch允许使用字符串"><a href="#Switch允许使用字符串" class="headerlink" title="Switch允许使用字符串"></a>Switch允许使用字符串</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">String s = <span class="string">"test"</span>;</span><br><span class="line"><span class="keyword">switch</span> (s) &#123;</span><br><span class="line">    <span class="keyword">case</span> <span class="string">"test"</span> :</span><br><span class="line">    System.out.println(<span class="string">"test"</span>);</span><br><span class="line">    <span class="keyword">case</span> <span class="string">"test1"</span> :</span><br><span class="line">    System.out.println(<span class="string">"test1"</span>);</span><br><span class="line">    <span class="keyword">break</span> ;</span><br><span class="line">    <span class="keyword">default</span> :</span><br><span class="line">    System.out.println(<span class="string">"break"</span>);</span><br><span class="line">    <span class="keyword">break</span> ;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><a id="more"></a>
+<h2 id="异常的改进"><a href="#异常的改进" class="headerlink" title="异常的改进"></a>异常的改进</h2><h2 id="文件操作"><a href="#文件操作" class="headerlink" title="文件操作"></a>文件操作</h2><h2 id="Switch允许使用字符串"><a href="#Switch允许使用字符串" class="headerlink" title="Switch允许使用字符串"></a>Switch允许使用字符串</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">String s = <span class="string">"test"</span>;</span><br><span class="line"><span class="keyword">switch</span> (s) &#123;</span><br><span class="line">    <span class="keyword">case</span> <span class="string">"test"</span> :</span><br><span class="line">    System.out.println(<span class="string">"test"</span>);</span><br><span class="line">    <span class="keyword">case</span> <span class="string">"test1"</span> :</span><br><span class="line">    System.out.println(<span class="string">"test1"</span>);</span><br><span class="line">    <span class="keyword">break</span> ;</span><br><span class="line">    <span class="keyword">default</span> :</span><br><span class="line">    System.out.println(<span class="string">"break"</span>);</span><br><span class="line">    <span class="keyword">break</span> ;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="泛型实例化类型自动推断"><a href="#泛型实例化类型自动推断" class="headerlink" title="泛型实例化类型自动推断"></a>泛型实例化类型自动推断</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">List&lt;String&gt; tempList = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br></pre></td></tr></table></figure>
 <h2 id="语法上支持集合，而不一定是数组"><a href="#语法上支持集合，而不一定是数组" class="headerlink" title="语法上支持集合，而不一定是数组"></a>语法上支持集合，而不一定是数组</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">final</span> List&lt;Integer&gt; list = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>]</span><br></pre></td></tr></table></figure>
 <h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://zhuanlan.zhihu.com/p/28160344" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/28160344</a></p>
